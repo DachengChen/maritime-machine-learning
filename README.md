@@ -57,7 +57,11 @@ maritime-machine-learning/
 
 ## Quick Start
 
-### 1. Install dependencies
+### 1. Set up the environment
+
+Using pyenv is recommended — see [Environment Setup with pyenv](#environment-setup-with-pyenv) at the bottom of this file.
+
+Or install directly into your active environment:
 
 ```bash
 pip install -r requirements.txt
@@ -177,6 +181,57 @@ All implementations expose the same `fit` / `predict` / `evaluate` interface.
 | `reinforcement_learning/q_learning/` | Tabular Q-learning | Route optimisation |
 | `reinforcement_learning/deep_q_network/` | DQN (neural Q-network) | Continuous state control |
 | `reinforcement_learning/policy_gradient/` | REINFORCE | Policy gradient optimisation |
+
+---
+
+## Environment Setup with pyenv
+
+### 1. Install Python and create a virtual environment
+
+```bash
+# Install Python 3.13.1
+pyenv install 3.13.1
+
+# Pin the version locally (.python-version already set)
+pyenv local 3.13.1
+
+# Create a venv inside the project
+python -m venv .venv
+
+# Activate
+source .venv/bin/activate   # macOS / Linux
+# .venv\Scripts\activate    # Windows
+```
+
+### 3. Install dependencies
+
+```bash
+pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+### 4. Run any algorithm
+
+```bash
+# General pattern
+python src/<category>/<algorithm>/main.py
+
+# Examples
+python src/supervised_learning/classification/nearest_neighbor/main.py
+python src/deep_learning/lstm/main.py
+python src/recommendation_systems/content_based/main.py
+python src/reinforcement_learning/deep_q_network/main.py
+```
+
+### Useful pyenv commands
+
+| Command | Description |
+|---|---|
+| `pyenv versions` | List all installed Python versions |
+| `pyenv local 3.13.1` | Pin Python version for the project |
+| `pyenv which python` | Show the path of the active Python binary |
+| `source .venv/bin/activate` | Activate the project venv |
+| `deactivate` | Deactivate the venv |
 
 ---
 
