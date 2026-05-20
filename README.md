@@ -10,10 +10,9 @@
 ```
 maritime-machine-learning/
 ├── data/
-│   ├── generate_sample_data.py   # Synthetic AIS data generator
 │   ├── raw/                      # Place raw AIS CSV files here
 │   ├── processed/                # Output of preprocessing pipeline
-│   └── sample/                   # Synthetic sample dataset (ais_sample.csv)
+│   └── sample/                   # Real AIS sample data from Kaggle (01_ais_data.csv)
 ├── models/                       # Saved model artefacts (.joblib)
 ├── src/
 │   ├── __init__.py
@@ -43,12 +42,11 @@ maritime-machine-learning/
 pip install -r requirements.txt
 ```
 
-### 2. Generate the sample dataset
+### 2. Sample dataset
 
-```bash
-python data/generate_sample_data.py
-# → data/sample/ais_sample.csv  (~1 000 synthetic AIS records)
-```
+`data/sample/01_ais_data.csv` is a real AIS dataset downloaded from Kaggle:
+
+> **[AIS Dataset — Emin Serkan Erdonmez](https://www.kaggle.com/datasets/eminserkanerdonmez/ais-dataset)**
 
 ### 3. Run the tests
 
@@ -56,6 +54,22 @@ python data/generate_sample_data.py
 pip install pytest
 pytest tests/ -v
 ```
+
+---
+
+## Data
+
+### Sample data — `data/sample/01_ais_data.csv`
+
+This file is a real-world AIS (Automatic Identification System) dataset sourced from Kaggle:
+
+| | |
+|---|---|
+| **Source** | [https://www.kaggle.com/datasets/eminserkanerdonmez/ais-dataset](https://www.kaggle.com/datasets/eminserkanerdonmez/ais-dataset) |
+| **Author** | Emin Serkan Erdonmez |
+| **Contents** | Vessel position reports including MMSI, navigational status, SOG, COG, heading, ship type, dimensions, and draught |
+
+Place additional raw AIS CSV files in `data/raw/` before running the preprocessing pipeline.
 
 ---
 
