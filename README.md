@@ -15,41 +15,41 @@ maritime-machine-learning/
 │       └── 01_ais_data.csv
 ├── models/                           # Saved model artefacts (.joblib)
 ├── src/
-│   ├── supervised_learning/
-│   │   ├── classification/
-│   │   │   ├── nearest_neighbor/main.py
-│   │   │   ├── naive_bayes/main.py
-│   │   │   ├── decision_trees/main.py
-│   │   │   └── classification_rules/main.py
-│   │   ├── numeric_prediction/
-│   │   │   ├── linear_regression/main.py
-│   │   │   ├── regression_trees/main.py
-│   │   │   └── model_trees/main.py
-│   │   └── dual_use/
-│   │       ├── neural_networks/main.py
-│   │       └── svm/main.py
-│   ├── unsupervised_learning/
-│   │   ├── association_rules/main.py
-│   │   └── kmeans/main.py
-│   ├── meta_learning/
-│   │   ├── bagging/main.py
-│   │   ├── boosting/main.py
-│   │   └── random_forests/main.py
-│   ├── deep_learning/
-│   │   ├── lstm/main.py
-│   │   ├── gru/main.py
-│   │   ├── cnn/main.py
-│   │   ├── transformer/main.py
-│   │   └── autoencoder/main.py
-│   ├── recommendation_systems/
-│   │   ├── collaborative_filtering/main.py
-│   │   ├── content_based/main.py
-│   │   ├── matrix_factorization/main.py
-│   │   └── neural_cf/main.py
-│   └── reinforcement_learning/
-│       ├── q_learning/main.py
-│       ├── deep_q_network/main.py
-│       └── policy_gradient/main.py
+│   ├── 01_supervised_learning/
+│   │   ├── 01_classification/
+│   │   │   ├── 01_nearest_neighbor/main.py
+│   │   │   ├── 02_naive_bayes/main.py
+│   │   │   ├── 03_decision_trees/main.py
+│   │   │   └── 04_classification_rules/main.py
+│   │   ├── 02_numeric_prediction/
+│   │   │   ├── 01_linear_regression/main.py
+│   │   │   ├── 02_regression_trees/main.py
+│   │   │   └── 03_model_trees/main.py
+│   │   └── 03_dual_use/
+│   │       ├── 01_neural_networks/main.py
+│   │       └── 02_svm/main.py
+│   ├── 02_unsupervised_learning/
+│   │   ├── 01_kmeans/main.py
+│   │   └── 02_association_rules/main.py
+│   ├── 03_meta_learning/
+│   │   ├── 01_bagging/main.py
+│   │   ├── 02_boosting/main.py
+│   │   └── 03_random_forests/main.py
+│   ├── 04_deep_learning/
+│   │   ├── 01_cnn/main.py
+│   │   ├── 02_lstm/main.py
+│   │   ├── 03_gru/main.py
+│   │   ├── 04_autoencoder/main.py
+│   │   └── 05_transformer/main.py
+│   ├── 05_recommendation_systems/
+│   │   ├── 01_collaborative_filtering/main.py
+│   │   ├── 02_content_based/main.py
+│   │   ├── 03_matrix_factorization/main.py
+│   │   └── 04_neural_cf/main.py
+│   └── 06_reinforcement_learning/
+│       ├── 01_q_learning/main.py
+│       ├── 02_deep_q_network/main.py
+│       └── 03_policy_gradient/main.py
 └── requirements.txt
 ```
 
@@ -96,32 +96,32 @@ Place additional raw AIS CSV files in `data/raw/`.
 Each algorithm lives in its own directory and can be run directly:
 
 ```bash
-python src/supervised_learning/classification/nearest_neighbor/main.py
-python src/supervised_learning/classification/naive_bayes/main.py
-python src/supervised_learning/classification/decision_trees/main.py
-python src/supervised_learning/classification/classification_rules/main.py
-python src/supervised_learning/numeric_prediction/linear_regression/main.py
-python src/supervised_learning/numeric_prediction/regression_trees/main.py
-python src/supervised_learning/numeric_prediction/model_trees/main.py
-python src/supervised_learning/dual_use/neural_networks/main.py
-python src/supervised_learning/dual_use/svm/main.py
-python src/unsupervised_learning/association_rules/main.py
-python src/unsupervised_learning/kmeans/main.py
-python src/meta_learning/bagging/main.py
-python src/meta_learning/boosting/main.py
-python src/meta_learning/random_forests/main.py
-python src/deep_learning/lstm/main.py
-python src/deep_learning/gru/main.py
-python src/deep_learning/cnn/main.py
-python src/deep_learning/transformer/main.py
-python src/deep_learning/autoencoder/main.py
-python src/recommendation_systems/collaborative_filtering/main.py
-python src/recommendation_systems/content_based/main.py
-python src/recommendation_systems/matrix_factorization/main.py
-python src/recommendation_systems/neural_cf/main.py
-python src/reinforcement_learning/q_learning/main.py
-python src/reinforcement_learning/deep_q_network/main.py
-python src/reinforcement_learning/policy_gradient/main.py
+python src/01_supervised_learning/01_classification/01_nearest_neighbor/main.py
+python src/01_supervised_learning/01_classification/02_naive_bayes/main.py
+python src/01_supervised_learning/01_classification/03_decision_trees/main.py
+python src/01_supervised_learning/01_classification/04_classification_rules/main.py
+python src/01_supervised_learning/02_numeric_prediction/01_linear_regression/main.py
+python src/01_supervised_learning/02_numeric_prediction/02_regression_trees/main.py
+python src/01_supervised_learning/02_numeric_prediction/03_model_trees/main.py
+python src/01_supervised_learning/03_dual_use/01_neural_networks/main.py
+python src/01_supervised_learning/03_dual_use/02_svm/main.py
+python src/02_unsupervised_learning/01_kmeans/main.py
+python src/02_unsupervised_learning/02_association_rules/main.py
+python src/03_meta_learning/01_bagging/main.py
+python src/03_meta_learning/02_boosting/main.py
+python src/03_meta_learning/03_random_forests/main.py
+python src/04_deep_learning/01_cnn/main.py
+python src/04_deep_learning/02_lstm/main.py
+python src/04_deep_learning/03_gru/main.py
+python src/04_deep_learning/04_autoencoder/main.py
+python src/04_deep_learning/05_transformer/main.py
+python src/05_recommendation_systems/01_collaborative_filtering/main.py
+python src/05_recommendation_systems/02_content_based/main.py
+python src/05_recommendation_systems/03_matrix_factorization/main.py
+python src/05_recommendation_systems/04_neural_cf/main.py
+python src/06_reinforcement_learning/01_q_learning/main.py
+python src/06_reinforcement_learning/02_deep_q_network/main.py
+python src/06_reinforcement_learning/03_policy_gradient/main.py
 ```
 
 All implementations expose the same `fit` / `predict` / `evaluate` interface.
@@ -130,57 +130,57 @@ All implementations expose the same `fit` / `predict` / `evaluate` interface.
 
 | Path | Algorithm | Task |
 |---|---|---|
-| `supervised_learning/classification/nearest_neighbor/` | k-Nearest Neighbours | Classification |
-| `supervised_learning/classification/naive_bayes/` | Gaussian Naïve Bayes | Classification |
-| `supervised_learning/classification/decision_trees/` | CART Decision Tree | Classification |
-| `supervised_learning/classification/classification_rules/` | 1R Rule Learner | Classification |
-| `supervised_learning/numeric_prediction/linear_regression/` | Linear Regression | Numeric prediction |
-| `supervised_learning/numeric_prediction/regression_trees/` | Regression Tree | Numeric prediction |
-| `supervised_learning/numeric_prediction/model_trees/` | Model Tree (M5 stub) | Numeric prediction |
-| `supervised_learning/dual_use/neural_networks/` | MLP (classifier + regressor) | Dual use |
-| `supervised_learning/dual_use/svm/` | SVM (classifier + regressor) | Dual use |
+| `01_supervised_learning/01_classification/01_nearest_neighbor/` | k-Nearest Neighbours | Classification |
+| `01_supervised_learning/01_classification/02_naive_bayes/` | Gaussian Naïve Bayes | Classification |
+| `01_supervised_learning/01_classification/03_decision_trees/` | CART Decision Tree | Classification |
+| `01_supervised_learning/01_classification/04_classification_rules/` | 1R Rule Learner | Classification |
+| `01_supervised_learning/02_numeric_prediction/01_linear_regression/` | Linear Regression | Numeric prediction |
+| `01_supervised_learning/02_numeric_prediction/02_regression_trees/` | Regression Tree | Numeric prediction |
+| `01_supervised_learning/02_numeric_prediction/03_model_trees/` | Model Tree (M5 stub) | Numeric prediction |
+| `01_supervised_learning/03_dual_use/01_neural_networks/` | MLP (classifier + regressor) | Dual use |
+| `01_supervised_learning/03_dual_use/02_svm/` | SVM (classifier + regressor) | Dual use |
 
 ### Unsupervised Learning
 
 | Path | Algorithm | Task |
 |---|---|---|
-| `unsupervised_learning/association_rules/` | Apriori / Association Rules | Pattern detection |
-| `unsupervised_learning/kmeans/` | k-means Clustering | Clustering |
+| `02_unsupervised_learning/01_kmeans/` | k-means Clustering | Clustering |
+| `02_unsupervised_learning/02_association_rules/` | Apriori / Association Rules | Pattern detection |
 
 ### Meta-Learning
 
 | Path | Algorithm | Task |
 |---|---|---|
-| `meta_learning/bagging/` | Bagging (classifier + regressor) | Dual use |
-| `meta_learning/boosting/` | Gradient Boosting (classifier + regressor) | Dual use |
-| `meta_learning/random_forests/` | Random Forest (classifier + regressor) | Dual use |
+| `03_meta_learning/01_bagging/` | Bagging (classifier + regressor) | Dual use |
+| `03_meta_learning/02_boosting/` | Gradient Boosting (classifier + regressor) | Dual use |
+| `03_meta_learning/03_random_forests/` | Random Forest (classifier + regressor) | Dual use |
 
 ### Deep Learning
 
 | Path | Algorithm | Task |
 |---|---|---|
-| `deep_learning/lstm/` | LSTM sequence predictor | Regression / forecasting |
-| `deep_learning/gru/` | GRU sequence predictor | Regression / forecasting |
-| `deep_learning/cnn/` | 1-D CNN sequence model | Regression / classification |
-| `deep_learning/transformer/` | Transformer encoder | Regression / classification |
-| `deep_learning/autoencoder/` | LSTM Autoencoder | Anomaly detection |
+| `04_deep_learning/01_cnn/` | 1-D CNN sequence model | Regression / classification |
+| `04_deep_learning/02_lstm/` | LSTM sequence predictor | Regression / forecasting |
+| `04_deep_learning/03_gru/` | GRU sequence predictor | Regression / forecasting |
+| `04_deep_learning/04_autoencoder/` | LSTM Autoencoder | Anomaly detection |
+| `04_deep_learning/05_transformer/` | Transformer encoder | Regression / classification |
 
 ### Recommendation Systems
 
 | Path | Algorithm | Task |
 |---|---|---|
-| `recommendation_systems/collaborative_filtering/` | User-based CF | Route / port recommendations |
-| `recommendation_systems/content_based/` | Content-based filtering | Item-feature similarity |
-| `recommendation_systems/matrix_factorization/` | SVD Matrix Factorisation | Latent-factor recommendations |
-| `recommendation_systems/neural_cf/` | Neural Collaborative Filtering | Deep recommendation |
+| `05_recommendation_systems/01_collaborative_filtering/` | User-based CF | Route / port recommendations |
+| `05_recommendation_systems/02_content_based/` | Content-based filtering | Item-feature similarity |
+| `05_recommendation_systems/03_matrix_factorization/` | SVD Matrix Factorisation | Latent-factor recommendations |
+| `05_recommendation_systems/04_neural_cf/` | Neural Collaborative Filtering | Deep recommendation |
 
 ### Reinforcement Learning
 
 | Path | Algorithm | Task |
 |---|---|---|
-| `reinforcement_learning/q_learning/` | Tabular Q-learning | Route optimisation |
-| `reinforcement_learning/deep_q_network/` | DQN (neural Q-network) | Continuous state control |
-| `reinforcement_learning/policy_gradient/` | REINFORCE | Policy gradient optimisation |
+| `06_reinforcement_learning/01_q_learning/` | Tabular Q-learning | Route optimisation |
+| `06_reinforcement_learning/02_deep_q_network/` | DQN (neural Q-network) | Continuous state control |
+| `06_reinforcement_learning/03_policy_gradient/` | REINFORCE | Policy gradient optimisation |
 
 ---
 
@@ -217,10 +217,10 @@ pip install -r requirements.txt
 python src/<category>/<algorithm>/main.py
 
 # Examples
-python src/supervised_learning/classification/nearest_neighbor/main.py
-python src/deep_learning/lstm/main.py
-python src/recommendation_systems/content_based/main.py
-python src/reinforcement_learning/deep_q_network/main.py
+python src/01_supervised_learning/01_classification/01_nearest_neighbor/main.py
+python src/04_deep_learning/02_lstm/main.py
+python src/05_recommendation_systems/02_content_based/main.py
+python src/06_reinforcement_learning/02_deep_q_network/main.py
 ```
 
 ### Useful pyenv commands
