@@ -1,0 +1,99 @@
+from __future__ import annotations
+
+import torch
+import torch.nn as nn
+from torch.utils.data import DataLoader, TensorDataset
+
+
+class LSTMPredictor(nn.Module):
+    """LSTM-based sequence predictor for vessel trajectories.
+
+    Parameters
+    ----------
+    input_size : int
+        Number of input features per timestep (e.g. sog, cog, lat, lon).
+    hidden_size : int
+        Number of LSTM hidden units. Default ``64``.
+    num_layers : int
+        Number of stacked LSTM layers. Default ``2``.
+    output_size : int
+        Output dimension — 1 for regression, N for N-class output. Default ``1``.
+    dropout : float
+        Dropout between LSTM layers (ignored when num_layers=1). Default ``0.0``.
+    """
+
+    def __init__(
+        self,
+        input_size: int,
+        hidden_size: int = 64,
+        num_layers: int = 2,
+        output_size: int = 1,
+        dropout: float = 0.0,
+    ):
+        super().__init__()
+        self.hidden_size = hidden_size
+        self.num_layers = num_layers
+        self.lstm = nn.LSTM(
+            input_size,
+            hidden_size,
+            num_layers,
+            batch_first=True,
+            dropout=dropout if num_layers > 1 else 0.0,
+        )
+        self.fc = nn.Linear(hidden_size, output_size)
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        # x: (batch, seq_len, input_size)
+        out, _ = self.lstm(x)
+        return self.fc(out[:, -1, :])  # use last timestep
+
+
+def train(
+    model: nn.Module,
+    loader: DataLoader,
+    criterion: nn.Module,
+    optimizer: torch.optim.Optimizer,
+    epochs: int = 10,
+) -> list[float]:
+    model.train()
+    losses = []
+    for epoch in range(epochs):
+        total = 0.0
+        for X_batch, y_batch in loader:
+            optimizer.zero_grad()
+            loss = criterion(model(X_batch), y_batch)
+            loss.backward()
+            optimizer.step()
+            total += loss.item()
+        avg = total / len(loader)
+        losses.append(avg)
+        print(f"epoch {epoch + 1}/{epochs}  loss={avg:.4f}")
+    return losses
+
+
+def evaluate(model: nn.Module, loader: DataLoader, criterion: nn.Module) -> dict:
+    model.eval()
+    total = 0.0
+    with torch.no_grad():
+        for X_batch, y_batch in loader:
+            total += criterion(model(X_batch), y_batch).item()
+    return {"loss": round(total / len(loader), 4)}
+
+
+if __name__ == "__main__":
+    torch.manual_seed(42)
+    SEQ_LEN, N, FEATURES = 20, 500, 4  # 4 features: sog, cog, lat, lon
+
+    X = torch.randn(N, SEQ_LEN, FEATURES)
+    y = X[:, -1, :1]  # predict next SOG value
+
+    split = int(N * 0.8)
+    train_loader = DataLoader(TensorDataset(X[:split], y[:split]), batch_size=32, shuffle=True)
+    test_loader  = DataLoader(TensorDataset(X[split:], y[split:]),  batch_size=32)
+
+    model     = LSTMPredictor(input_size=FEATURES, hidden_size=64, num_layers=2, output_size=1)
+    criterion = nn.MSELoss()
+    optimizer = torch.optim.Adam(model.parameters(), lr=1e-3)
+
+    train(model, train_loader, criterion, optimizer, epochs=5)
+    print("test:", evaluate(model, test_loader, criterion))

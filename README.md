@@ -15,9 +15,41 @@ maritime-machine-learning/
 │       └── 01_ais_data.csv
 ├── models/                           # Saved model artefacts (.joblib)
 ├── src/
-│   ├── 07_supervised_learning.py    # KNN, NB, DT, Rules, LinReg, NN, SVM
-│   ├── 08_unsupervised_learning.py  # Association Rules, k-means
-│   └── 09_meta_learning.py          # Bagging, Boosting, Random Forests
+│   ├── supervised_learning/
+│   │   ├── classification/
+│   │   │   ├── nearest_neighbor/main.py
+│   │   │   ├── naive_bayes/main.py
+│   │   │   ├── decision_trees/main.py
+│   │   │   └── classification_rules/main.py
+│   │   ├── numeric_prediction/
+│   │   │   ├── linear_regression/main.py
+│   │   │   ├── regression_trees/main.py
+│   │   │   └── model_trees/main.py
+│   │   └── dual_use/
+│   │       ├── neural_networks/main.py
+│   │       └── svm/main.py
+│   ├── unsupervised_learning/
+│   │   ├── association_rules/main.py
+│   │   └── kmeans/main.py
+│   ├── meta_learning/
+│   │   ├── bagging/main.py
+│   │   ├── boosting/main.py
+│   │   └── random_forests/main.py
+│   ├── deep_learning/
+│   │   ├── lstm/main.py
+│   │   ├── gru/main.py
+│   │   ├── cnn/main.py
+│   │   ├── transformer/main.py
+│   │   └── autoencoder/main.py
+│   ├── recommendation_systems/
+│   │   ├── collaborative_filtering/main.py
+│   │   ├── content_based/main.py
+│   │   ├── matrix_factorization/main.py
+│   │   └── neural_cf/main.py
+│   └── reinforcement_learning/
+│       ├── q_learning/main.py
+│       ├── deep_q_network/main.py
+│       └── policy_gradient/main.py
 └── requirements.txt
 ```
 
@@ -74,6 +106,18 @@ python src/unsupervised_learning/kmeans/main.py
 python src/meta_learning/bagging/main.py
 python src/meta_learning/boosting/main.py
 python src/meta_learning/random_forests/main.py
+python src/deep_learning/lstm/main.py
+python src/deep_learning/gru/main.py
+python src/deep_learning/cnn/main.py
+python src/deep_learning/transformer/main.py
+python src/deep_learning/autoencoder/main.py
+python src/recommendation_systems/collaborative_filtering/main.py
+python src/recommendation_systems/content_based/main.py
+python src/recommendation_systems/matrix_factorization/main.py
+python src/recommendation_systems/neural_cf/main.py
+python src/reinforcement_learning/q_learning/main.py
+python src/reinforcement_learning/deep_q_network/main.py
+python src/reinforcement_learning/policy_gradient/main.py
 ```
 
 All implementations expose the same `fit` / `predict` / `evaluate` interface.
@@ -106,6 +150,33 @@ All implementations expose the same `fit` / `predict` / `evaluate` interface.
 | `meta_learning/bagging/` | Bagging (classifier + regressor) | Dual use |
 | `meta_learning/boosting/` | Gradient Boosting (classifier + regressor) | Dual use |
 | `meta_learning/random_forests/` | Random Forest (classifier + regressor) | Dual use |
+
+### Deep Learning
+
+| Path | Algorithm | Task |
+|---|---|---|
+| `deep_learning/lstm/` | LSTM sequence predictor | Regression / forecasting |
+| `deep_learning/gru/` | GRU sequence predictor | Regression / forecasting |
+| `deep_learning/cnn/` | 1-D CNN sequence model | Regression / classification |
+| `deep_learning/transformer/` | Transformer encoder | Regression / classification |
+| `deep_learning/autoencoder/` | LSTM Autoencoder | Anomaly detection |
+
+### Recommendation Systems
+
+| Path | Algorithm | Task |
+|---|---|---|
+| `recommendation_systems/collaborative_filtering/` | User-based CF | Route / port recommendations |
+| `recommendation_systems/content_based/` | Content-based filtering | Item-feature similarity |
+| `recommendation_systems/matrix_factorization/` | SVD Matrix Factorisation | Latent-factor recommendations |
+| `recommendation_systems/neural_cf/` | Neural Collaborative Filtering | Deep recommendation |
+
+### Reinforcement Learning
+
+| Path | Algorithm | Task |
+|---|---|---|
+| `reinforcement_learning/q_learning/` | Tabular Q-learning | Route optimisation |
+| `reinforcement_learning/deep_q_network/` | DQN (neural Q-network) | Continuous state control |
+| `reinforcement_learning/policy_gradient/` | REINFORCE | Policy gradient optimisation |
 
 ---
 
