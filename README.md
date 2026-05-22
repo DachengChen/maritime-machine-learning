@@ -35,21 +35,24 @@ maritime-machine-learning/
 │   │   ├── 01_bagging/main.py
 │   │   ├── 02_boosting/main.py
 │   │   └── 03_random_forests/main.py
-│   ├── 04_deep_learning/
-│   │   ├── 01_cnn/main.py
-│   │   ├── 02_lstm/main.py
-│   │   ├── 03_gru/main.py
-│   │   ├── 04_autoencoder/main.py
-│   │   └── 05_transformer/main.py
-│   ├── 05_recommendation_systems/
+│   ├── 04_recommendation_systems/
 │   │   ├── 01_collaborative_filtering/main.py
 │   │   ├── 02_content_based/main.py
 │   │   ├── 03_matrix_factorization/main.py
 │   │   └── 04_neural_cf/main.py
-│   └── 06_reinforcement_learning/
-│       ├── 01_q_learning/main.py
-│       ├── 02_deep_q_network/main.py
-│       └── 03_policy_gradient/main.py
+│   ├── 05_reinforcement_learning/
+│   │   ├── 01_q_learning/main.py
+│   │   ├── 02_deep_q_network/main.py
+│   │   └── 03_policy_gradient/main.py
+│   └── 06_deep_learning/
+│       ├── 01_rnn/main.py
+│       ├── 02_cnn/main.py
+│       ├── 03_lstm/main.py
+│       ├── 04_gru/main.py
+│       ├── 05_autoencoder/main.py
+│       ├── 06_transformer/main.py
+│       ├── 07_brnn/main.py
+│       └── 08_drnn/main.py
 └── requirements.txt
 ```
 
@@ -110,18 +113,21 @@ python src/02_unsupervised_learning/02_association_rules/main.py
 python src/03_meta_learning/01_bagging/main.py
 python src/03_meta_learning/02_boosting/main.py
 python src/03_meta_learning/03_random_forests/main.py
-python src/04_deep_learning/01_cnn/main.py
-python src/04_deep_learning/02_lstm/main.py
-python src/04_deep_learning/03_gru/main.py
-python src/04_deep_learning/04_autoencoder/main.py
-python src/04_deep_learning/05_transformer/main.py
-python src/05_recommendation_systems/01_collaborative_filtering/main.py
-python src/05_recommendation_systems/02_content_based/main.py
-python src/05_recommendation_systems/03_matrix_factorization/main.py
-python src/05_recommendation_systems/04_neural_cf/main.py
-python src/06_reinforcement_learning/01_q_learning/main.py
-python src/06_reinforcement_learning/02_deep_q_network/main.py
-python src/06_reinforcement_learning/03_policy_gradient/main.py
+python src/04_recommendation_systems/01_collaborative_filtering/main.py
+python src/04_recommendation_systems/02_content_based/main.py
+python src/04_recommendation_systems/03_matrix_factorization/main.py
+python src/04_recommendation_systems/04_neural_cf/main.py
+python src/05_reinforcement_learning/01_q_learning/main.py
+python src/05_reinforcement_learning/02_deep_q_network/main.py
+python src/05_reinforcement_learning/03_policy_gradient/main.py
+python src/06_deep_learning/01_rnn/main.py
+python src/06_deep_learning/02_cnn/main.py
+python src/06_deep_learning/03_lstm/main.py
+python src/06_deep_learning/04_gru/main.py
+python src/06_deep_learning/05_autoencoder/main.py
+python src/06_deep_learning/06_transformer/main.py
+python src/06_deep_learning/07_brnn/main.py
+python src/06_deep_learning/08_drnn/main.py
 ```
 
 All implementations expose the same `fit` / `predict` / `evaluate` interface.
@@ -155,32 +161,35 @@ All implementations expose the same `fit` / `predict` / `evaluate` interface.
 | `03_meta_learning/02_boosting/` | Gradient Boosting (classifier + regressor) | Dual use |
 | `03_meta_learning/03_random_forests/` | Random Forest (classifier + regressor) | Dual use |
 
-### Deep Learning
-
-| Path | Algorithm | Task |
-|---|---|---|
-| `04_deep_learning/01_cnn/` | 1-D CNN sequence model | Regression / classification |
-| `04_deep_learning/02_lstm/` | LSTM sequence predictor | Regression / forecasting |
-| `04_deep_learning/03_gru/` | GRU sequence predictor | Regression / forecasting |
-| `04_deep_learning/04_autoencoder/` | LSTM Autoencoder | Anomaly detection |
-| `04_deep_learning/05_transformer/` | Transformer encoder | Regression / classification |
-
 ### Recommendation Systems
 
 | Path | Algorithm | Task |
 |---|---|---|
-| `05_recommendation_systems/01_collaborative_filtering/` | User-based CF | Route / port recommendations |
-| `05_recommendation_systems/02_content_based/` | Content-based filtering | Item-feature similarity |
-| `05_recommendation_systems/03_matrix_factorization/` | SVD Matrix Factorisation | Latent-factor recommendations |
-| `05_recommendation_systems/04_neural_cf/` | Neural Collaborative Filtering | Deep recommendation |
+| `04_recommendation_systems/01_collaborative_filtering/` | User-based CF | Route / port recommendations |
+| `04_recommendation_systems/02_content_based/` | Content-based filtering | Item-feature similarity |
+| `04_recommendation_systems/03_matrix_factorization/` | SVD Matrix Factorisation | Latent-factor recommendations |
+| `04_recommendation_systems/04_neural_cf/` | Neural Collaborative Filtering | Deep recommendation |
 
 ### Reinforcement Learning
 
 | Path | Algorithm | Task |
 |---|---|---|
-| `06_reinforcement_learning/01_q_learning/` | Tabular Q-learning | Route optimisation |
-| `06_reinforcement_learning/02_deep_q_network/` | DQN (neural Q-network) | Continuous state control |
-| `06_reinforcement_learning/03_policy_gradient/` | REINFORCE | Policy gradient optimisation |
+| `05_reinforcement_learning/01_q_learning/` | Tabular Q-learning | Route optimisation |
+| `05_reinforcement_learning/02_deep_q_network/` | DQN (neural Q-network) | Continuous state control |
+| `05_reinforcement_learning/03_policy_gradient/` | REINFORCE | Policy gradient optimisation |
+
+### Deep Learning
+
+| Path | Algorithm | Task |
+|---|---|---|
+| `06_deep_learning/01_rnn/` | Vanilla RNN sequence predictor | Regression / forecasting |
+| `06_deep_learning/02_cnn/` | 1-D CNN sequence model | Regression / classification |
+| `06_deep_learning/03_lstm/` | LSTM sequence predictor | Regression / forecasting |
+| `06_deep_learning/04_gru/` | GRU sequence predictor | Regression / forecasting |
+| `06_deep_learning/05_autoencoder/` | LSTM Autoencoder | Anomaly detection |
+| `06_deep_learning/06_transformer/` | Transformer encoder | Regression / classification |
+| `06_deep_learning/07_brnn/` | Bidirectional RNN predictor | Regression / classification |
+| `06_deep_learning/08_drnn/` | Deep RNN (stacked layers) | Regression / forecasting |
 
 ---
 
@@ -218,9 +227,9 @@ python src/<category>/<algorithm>/main.py
 
 # Examples
 python src/01_supervised_learning/01_classification/01_nearest_neighbor/main.py
-python src/04_deep_learning/02_lstm/main.py
-python src/05_recommendation_systems/02_content_based/main.py
-python src/06_reinforcement_learning/02_deep_q_network/main.py
+python src/06_deep_learning/03_lstm/main.py
+python src/04_recommendation_systems/02_content_based/main.py
+python src/05_reinforcement_learning/02_deep_q_network/main.py
 ```
 
 ### Useful pyenv commands
